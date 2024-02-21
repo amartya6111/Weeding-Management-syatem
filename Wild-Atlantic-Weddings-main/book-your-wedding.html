@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!--Search Engine Optimization Title Name-->
+  <title>Book Your Wedding Day</title>
+  
+  <!--Search Engine Optimization Meta Description-->
+  <meta name="description" content="A wedding supplier and catering for the wild atlantic coast. Wedding venues and services across the west coast of Ireland.">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon2.ico">
+
+  <!--External CSS-->
+  <link rel="stylesheet" href="styles.css">
+
+  <!--External JS-->
+  <script src="script.js"></script>
+
+  <!--background image for each page-->
+  <style>
+    .main-mypage{
+      background-image: url("images/bookPage.jpg");
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+
+</head>
+<body onload="checkToday()">
+  <!-- sticky header with logo, navbar and login -->
+  <header id="stickyNavbar">
+    <div class="header-mypage">
+
+				<!--Logo onclick 'Homepage'-->
+				<div>
+					<a href="index.html"><img id="header-logo" src="images/MicrosoftTeams-image.png" alt="Logo"></a>
+				</div>
+      <!--Navbar-->
+      <div id="header-navbar">
+        <ul id="navbar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+            <li><a href="wedding-venues.html">Venues</a></li>
+            <li><a href="wedding-extras.html">Extras</a></li>
+            <li><a href="book-your-wedding.html" style="text-decoration: underline;">Book</a></li>
+            <li><a href="contactUs.html">Contact us</a></li>
+        </ul>
+      </div>
+    <div class="button-div"><button type="button" class="button-login" onclick="showLogin();">Couple login</button></div>
+    <br>
+    <div></div>
+
+    <!-- login form -->
+        <div class="container-form">
+          <form id="login-form" onsubmit="event.preventDefault(); validateForm();">
+            <fieldset id="show-login" style="display: none;">
+              <legend class="legend-login">Login</legend>
+              <label for="username">Username:</label><br>
+                  <input type="text" id="username" name="username"><br>
+                <br>
+                  <label for="pwd">Password:</label><br>
+                  <input type="password" id="password" name="password">
+                <br><br>
+                    <div class="checkbox">
+                      <label><input type="checkbox" name="remember"> Remember me</label>
+                    </div>
+              <br>
+              <input type="submit" id="submit" value="Submit">
+            </fieldset>
+          </form>
+        </div>
+    </div>
+  </header>
+
+<!--Start of main body-->
+<main>
+  <div class="main-mypage">
+    <div id="main-left">
+    </div>
+
+  <div id="main-center">
+    <!-- booking form -->
+    <form class="bookingForm">
+      <div class="cont-venue">
+        <fieldset class="bookingFieldset" style="background-color: #004053">
+          <legend style="font-size: 35px; text-shadow: -3px -3px 2px black;">Design your wedding!</legend>
+          <br>
+      <div>(Please login to book)</div>
+      <br>
+          <label for="date" style="color:white">Your wedding date:</label>
+          <input type="date" id="wedDate" name="date"><br><br>
+      <!--venues-->
+          <label>Venues</label>
+          <br>
+
+          <!--Dropdown Venue select-->
+          <select id="dropdownVenues" name="dropdownVenues" onchange="checkVenue(this)">
+            <option id="venueDromoland" value="300">Dromoland Castle - max 300 guests</option>
+            <option id="venueAshford" value="166">Ashford Castle - max 166 guests</option>
+            <option id="venueDelphi" value="200">Delphi Resort - max 200 guests</option>
+          </select>
+          <br>
+          <label>Number of guests</label>
+          <input type="number" id="guestInput" name="quantity" min="0" max="300">
+          <br>
+      <br>
+
+      <!--Church Extras-->
+      <label class="checkbox">
+            Church / Temple Service
+      </label>
+          <ul style="list-style: none">
+      <li><label class="checkbox">
+            <input type="checkbox" class="price" name="selectExtra" value="200">
+            Basic Temple / Church Service or Civil Ceremony  - 00&#8377;
+            </label></li>
+            <li><label class="checkbox">
+            <input type="checkbox" class="price" name="selectExtra" value="30">
+              Recorded wedding march or Mandap and all - 15000&#8377;
+            </label></li>
+            
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="price" name="selectExtra" value="40">
+              Ribbons on the  benches  - 1000&#8377;
+              </label></li>
+          </ul>
+          <br>
+
+          <!--Catering Extras-->
+          <label class="checkbox">
+            Catering
+          </label>
+          <ul style="list-style: none">
+            <li><label class="checkbox">
+            <input type="checkbox" class="pricepp" name="selectExtra" value="40">
+              2 main courses - 400&#8377; pp
+            </label></li>
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="pricepp" name="selectExtra" value="8">
+              Appetisers - 300&#8377; pp
+              </label></li>
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="pricepp" name="selectExtra" value="5">
+                Wedding cake - 200&#8377; pp
+              </label></li>
+              <li>
+                <label class="checkbox">
+                <input type="checkbox" class="pricepp" name="selectExtra" value="30">
+                All inclusive wine  - 250&#8377; PG
+                </label></li>
+          </ul>
+          <br>
+
+          <!--Decoration Extras-->
+          <label class="checkbox">
+            Decorations
+          </label>
+          <ul style="list-style: none">
+            <li><label class="checkbox">
+            <input type="checkbox" class="price" name="selectExtra" value="200">
+              Flowers on the tables  - 1800&#8377;
+            </label></li>
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="price" name="selectExtra" value="200">
+                Flowers in the church/Temple - 5000&#8377;
+              </label></li>
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="price" name="selectExtra" value="70">
+                Bouquet - 1200&#8377;
+              </label></li>
+              <li>
+                <label class="checkbox">
+                <input type="checkbox" class="price" name="selectExtra" value="60">
+                  Balloons - 500&#8377;
+                </label></li>
+          </ul>
+          <br>
+
+          <!--Music and Entertainment Extras-->
+          <label class="checkbox">
+            Music & Entertainment
+          </label>
+            <ul style="list-style: none">
+              <li><label class="checkbox">
+              <input type="checkbox" class="price" name="selectExtra" value="500">
+                Band - 12000&#8377;
+              </label></li>
+              <li>
+                <label class="checkbox">
+                <input type="checkbox" class="price" name="selectExtra" value="800">
+                  Classical quartet - 40000&#8377;
+                </label></li>
+              <li>
+                <label class="checkbox">
+                <input type="checkbox" class="price" name="selectExtra" value="200">
+                  Entertainment for kids - 8000&
+                  ;
+                </label></li>
+            </ul>
+          <br>
+
+          <!--Photography Extras-->
+          <label class="checkbox">
+            Photography Service
+          </label>
+          <ul style="list-style: none">
+            <li><label class="checkbox">
+            <input type="checkbox" class="price" name="selectExtra" value="1400">
+              All day service - 1 photographer - 14000&#8377;
+            </label></li>
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="price" name="selectExtra" value="1000">
+                additional photographer  - 6000&#8377;
+              </label></li>
+            <li>
+              <label class="checkbox">
+              <input type="checkbox" class="price" name="selectExtra" value="100">
+                2 Photographic books - 10000&#8377;
+              </label></li>
+              <li>
+                <label class="checkbox">
+                <input type="checkbox" class="price" name="selectExtra" value="100">
+                  Print of 1 canvas 60*80cm - 5500&#8377;
+                </label></li>
+          </ul>
+          <br>
+
+          <!--Extra Information-->
+          <label class="checkbox">
+            Extra information
+          </label>
+          <br>
+          <br>
+
+          <!--Wedding Style dropdown-->
+          <label for="style" style="color:white">Wedding style</label>
+          <select id="style" name="style">
+            <option value="Romantic">Romantic Wedding</option>
+            <option value="Garden & Outdoor Weddings">Garden & Outdoor Weddings</option>
+            <option value="Traditional">Traditional</option>
+            <option value="Modern Weddings">Modern Wedding</option>
+          </select>
+          <textarea id="text" name="text" placeholder="Do you have a favorite flower?" style="height:50px"></textarea>
+          <textarea id="text" name="text" placeholder="Does your wedding have a theme?" style="height:50px"></textarea>
+          <textarea id="text" name="text" placeholder="Does your wedding have a main colour scheme? " style="height:50px"></textarea>
+          <input class="button" type="button" value="Total" onclick="computeTotal();" style="cursor: pointer;">
+
+          <div id="results"></div>
+      </div>
+    </form>
+  </div>
+      <div id="main-right">
+      </div>
+  </div>
+</main><!--End of main-->
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="footer-contact">
+      <p>Agra, India </p>
+      <ul class="footer__contacts">
+        <li>
+          <a>Phn: +91 7983698328</a>
+        </li>
+        <li>|</li>
+       
+        <li>
+          <a>Email: amartya6111@gmail.com</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

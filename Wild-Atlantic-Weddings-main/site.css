@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+  /* adjust the size and position of elements for small screens */
+  .container-form {
+    width: 90%;
+    margin: 0 auto;
+  }
+  /* adjust the font size for small screens */
+  input, label {
+    font-size: 14px;
+  }
+}
